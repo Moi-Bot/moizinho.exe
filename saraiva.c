@@ -28,6 +28,9 @@ int maior (int v1, int v2, int v3)
 	}
 }
 
+//########################################################
+//Menu 
+
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
@@ -42,32 +45,32 @@ int menu()
 	
 	do
 	{
-		printf("                 __,__\n")
-     printf("   .--.  .-"     "-.  .--.\n")
-    printf("   / .. \/  .-. .-.  \/ .. \\\n")
-    printf("  | |  '|  /   Y   \  |'  | |\n")
-    printf("  | \   \  \ 0 | 0 /  /   / |\n")
-    printf("   \ '- ,\.- `` ``-./, -' /\n")
-    printf("    `'-' /_   ^ ^   _\ '-'`\n")
-    printf("    .--'|  \._ _ _./  |'--. \n")
-    printf("  /`    \   \.-.  /   /    `\\\n")
-   printf("  /       '._/  |-' _.'       \\\n")
-   printf(" /          ;  /--~'   |       \\\n")
-  printf(" /        .'\|.-\--.     \       \\\n")
- printf(" /   .'-. /.-.;\  |\|'~'-.|\       \\\n")
- printf(" \       `-./`|_\_/ `     `\'.      \\\n")
-  printf(" '.      ;     ___)        '.`;    /\n")
-  printf("   '-.,_ ;     ___)          \\/  /\n")
-   printf("   \   ``'------'\       \\  `  /\n")
-   printf("    '.    \       '.      |   ;/_\n")
-printf("jgs  ___>     '.       \_ _ _/   ,  '--.\n")
-  printf(" .'   '.   .-~~~~~-. /     |--'`~~-.  \\\n")
- printf(" // / .---'/  .-~~-._/ / / /---..__.'  /\n")
- printf("((_(_/    /  /      (_(_(_(---.__    .'\n")
- printf("          | |     _              `~~`\n")
- printf("          | |     \'.\n")
- printf("           \ '....' |\n")
- printf("            '.,___.'\n")
+		printf("                 __,__\n");
+     printf("   .--.  .-"     "-.  .--.\n");
+    printf("   / .. \/  .-. .-.  \/ .. \\\n");
+    printf("  | |  '|  /   Y   \  |'  | |\n");
+    printf("  | \   \  \ 0 | 0 /  /   / |\n");
+    printf("   \ '- ,\.- `` ``-./, -' /\n");
+    printf("    `'-' /_   ^ ^   _\ '-'`\n");
+    printf("    .--'|  \._ _ _./  |'--. \n");
+    printf("  /`    \   \.-.  /   /    `\\\n");
+   printf("  /       '._/  |-' _.'       \\\n");
+   printf(" /          ;  /--~'   |       \\\n");
+  printf(" /        .'\|.-\--.     \       \\\n");
+ printf(" /   .'-. /.-.;\  |\|'~'-.|\       \\\n");
+ printf(" \       `-./`|_\_/ `     `\'.      \\\n");
+  printf(" '.      ;     ___)        '.`;    /\n");
+  printf("   '-.,_ ;     ___)          \\/  /\n");
+   printf("   \   ``'------'\       \\  `  /\n");
+   printf("    '.    \       '.      |   ;/_\n");
+printf("jgs  ___>     '.       \_ _ _/   ,  '--.\n");
+  printf(" .'   '.   .-~~~~~-. /     |--'`~~-.  \\\n");
+ printf(" // / .---'/  .-~~-._/ / / /---..__.'  /\n");
+ printf("((_(_/    /  /      (_(_(_(---.__    .'\n");
+ printf("          | |     _              `~~`\n");
+ printf("          | |     \'.\n");
+ printf("           \ '....' |\n");
+ printf("            '.,___.'\n");
 		
 		printf("\n ########## ESCOLHA UM OPÇÃO #############\N");
 		printf("\n (1) Para opção 1 - CAFÉ" );
@@ -221,4 +224,61 @@ float doces ()
 		 custoD = custoD*qtd;
 		 
 	return custoD;
+};
+//#########################################################
+//BubbleSort
+
+void bubbleSort(int *V, int N)
+{
+int i, continua, aux, fim=N;
+do
+{
+continua=0;
+for(i=0; i<fim-1; i++)
+	{
+		if(V[i]>V[i+1])
+	{
+	aux = V[i];
+	V[i]=V[i + 1];
+	V[i +1 ] = aux;
+	continua = i;
+     }
+}
+fim --;
+}
+while(continua!=0);
+
+};
+
+// ########################################################################
+// QuickSort
+
+int particiona(int *V, int inicio, int final ){
+    int esq, dir, pivo, aux;
+    esq = inicio;
+    dir = final;
+    pivo = V[inicio];
+    while(esq < dir){
+        while(V[esq] <= pivo)
+            esq++;
+        while(V[dir] > pivo)
+            dir--;
+        if(esq < dir){
+            aux = V[esq];
+            V[esq] = V[dir];
+            V[dir] = aux;
+        }
+    }
+    V[inicio] = V[dir];
+    V[dir] = pivo;
+    return dir;
+};
+
+void quickSort(int *V, int inicio, int fim) {
+    int pivo;
+    if(fim > inicio){
+        pivo = particiona(V, inicio, fim);
+        quickSort(V, inicio, pivo-1);
+        quickSort(V, pivo+1, fim);
+    }
 };
